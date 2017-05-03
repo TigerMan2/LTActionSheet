@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1H-lz-aAh">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="666"/>
+                    <rect key="frame" x="8" y="0.0" width="359" height="666"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -33,10 +33,10 @@
             <constraints>
                 <constraint firstItem="0xx-FZ-7G6" firstAttribute="top" secondItem="l1H-lz-aAh" secondAttribute="bottom" id="2Pr-Ae-RBT"/>
                 <constraint firstItem="l1H-lz-aAh" firstAttribute="top" secondItem="YpJ-LJ-sNS" secondAttribute="top" id="7Du-4c-ZTN"/>
-                <constraint firstAttribute="trailing" secondItem="l1H-lz-aAh" secondAttribute="trailing" id="WIe-bH-BBh"/>
+                <constraint firstAttribute="trailing" secondItem="l1H-lz-aAh" secondAttribute="trailing" constant="8" id="WIe-bH-BBh"/>
                 <constraint firstAttribute="trailing" secondItem="0xx-FZ-7G6" secondAttribute="trailing" id="XaR-Mz-Bbm"/>
                 <constraint firstAttribute="bottom" secondItem="0xx-FZ-7G6" secondAttribute="bottom" id="dpi-g8-Vs7"/>
-                <constraint firstItem="l1H-lz-aAh" firstAttribute="leading" secondItem="YpJ-LJ-sNS" secondAttribute="leading" id="u4g-B3-z45"/>
+                <constraint firstItem="l1H-lz-aAh" firstAttribute="leading" secondItem="YpJ-LJ-sNS" secondAttribute="leading" constant="8" id="u4g-B3-z45"/>
                 <constraint firstItem="0xx-FZ-7G6" firstAttribute="leading" secondItem="YpJ-LJ-sNS" secondAttribute="leading" id="zkf-nR-Pka"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

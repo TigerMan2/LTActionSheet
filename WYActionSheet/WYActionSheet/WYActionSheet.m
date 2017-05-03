@@ -81,16 +81,20 @@
             self = [self updateDefaultStyleWithItems:itemTitles title:title selfView:self];
             [self pushDefaultStyleSheetView];
         }else if (style == WYSheetStyleWeiChat){
-            //微信样式,待开发
+            //微信样式
+            self = [self upWeiChatStyeWithItems:itemTitles title:title selfView:self];
+            [self pushDefaultStyleSheetView];
             
         }else if (style == WYSheetStyleTable){
             //列表样式,待开发
+            self = [self upTableStyeWithItems:itemTitles title:title selfView:self];
+            [self pushTableStyeSheetView];
         }
         
     }
     return self;
 }
-#pragma mark - 更新默认样式
+#pragma mark - 初始化默认样式
 - (id)updateDefaultStyleWithItems:(NSArray *)items title:(NSString *)title selfView:(WYActionSheet *)selfView
 {
     //半透明按钮
@@ -147,6 +151,110 @@
     
     return selfView;
 }
+#pragma mark 初始化微信样式
+- (id)upWeiChatStyeWithItems:(NSArray *)itemTitles title:(NSString *)title selfView:(WYActionSheet *)selfView
+{
+    [selfView.bgBtn addTarget:selfView action:@selector(dismissWeiChatStyeSheetView) forControlEvents:UIControlEventTouchUpInside];
+    selfView.bgBtn.frame = CGRectMake(0, 0, kWW, kWH);
+    [selfView.footView.cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    selfView.footView.cancelBtn.titleLabel.font = [UIFont systemFontOfSize:18];
+    if ([[UIScreen mainScreen] bounds].size.height == 667) {
+        selfView.footView.cancelBtn.titleLabel.font = [UIFont systemFontOfSize:20];
+    }
+    else if ([[UIScreen mainScreen] bounds].size.height > 667) {
+        selfView.footView.cancelBtn.titleLabel.font = [UIFont systemFontOfSize:21];
+    }
+    
+    //中间空隙
+    selfView.marginView = [[UIView alloc] init];
+    selfView.marginView.backgroundColor = [UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1.0];
+    selfView.marginView.alpha = 0.0;
+    [selfView addSubview:selfView.marginView];
+    
+    //标题
+    BOOL isTitle = NO;
+    if (title.length > 0) {
+        selfView.titleView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([WYSheetHead class]) owner:selfView options:nil].lastObject;
+        selfView.titleView.titleLabel.text = title;
+        isTitle = YES;
+        [selfView.contentView addSubview:selfView.titleView];
+    }
+    selfView.sheetView.cellTextColor = [UIColor blackColor];
+    
+    //布局子控件
+    int cellCount = (int)itemTitles.count;
+    selfView.contentVH = kCellH * (cellCount + isTitle);
+    CGFloat maxH = kWH - 200 - (kCellH + 2*kMargin);
+    if (selfView.contentVH > maxH) {
+        selfView.contentVH = maxH;
+        selfView.sheetView.tableView.scrollEnabled = YES;
+    } else {
+        selfView.sheetView.tableView.scrollEnabled = NO;
+    }
+    
+    selfView.footViewY = kWH - kCellH;
+    selfView.footView.frame = CGRectMake(0, selfView.footViewY + selfView.contentVH, kWW, kCellH);
+    
+    selfView.contentViewY = kWH - CGRectGetHeight(selfView.footView.frame) - selfView.contentVH - kMargin;
+    selfView.contentView.frame = CGRectMake(0, kWH, kWW, selfView.contentVH);
+    
+    CGFloat sheetY = 0;
+    CGFloat sheetH = CGRectGetHeight(selfView.contentView.frame);
+    if (isTitle) {
+        selfView.titleView.frame = CGRectMake(0, 0, kWW, kCellH);
+        sheetY = CGRectGetHeight(selfView.titleView.frame);
+        sheetH = CGRectGetHeight(selfView.contentView.frame) - CGRectGetHeight(selfView.titleView.frame);
+    }
+    selfView.sheetView.frame = CGRectMake(0, sheetY, kWW, sheetH);
+    selfView.marginView.frame = CGRectMake(0, kWH + sheetH, kWW, kMargin);
+    
+    [selfView.footView.cancelBtn addTarget:self action:@selector(dismissWeiChatStyeSheetView) forControlEvents:UIControlEventTouchUpInside];
+    return selfView;
+}
+#pragma mark 初始化Table样式
+///初始化TableView样式
+- (id)upTableStyeWithItems:(NSArray *)itemTitles title:(NSString *)title selfView:(WYActionSheet *)selfView
+{
+    if (selfView.footView) {
+        [selfView.footView removeFromSuperview];
+    }
+    [selfView.bgBtn addTarget:selfView action:@selector(dismissTableStyeSheetView) forControlEvents:UIControlEventTouchUpInside];
+    selfView.bgBtn.frame = CGRectMake(0, 0, kWW, kWH);
+    
+    //标题
+    BOOL isTitle = NO;
+    if (title.length > 0) {
+        selfView.titleView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([WYSheetHead class]) owner:selfView options:nil].lastObject;
+        selfView.titleView.titleLabel.text = title;
+        selfView.titleView.titleLabel.textAlignment = NSTextAlignmentLeft;
+        isTitle = YES;
+        [selfView.contentView addSubview:selfView.titleView];
+    }
+    selfView.sheetView.cellTextColor = [UIColor blackColor];
+    selfView.sheetView.cellTextStyle = NSTextStyleLeft;
+    selfView.sheetView.tableView.scrollEnabled = YES;
+    
+    //布局子控件
+    int cellCount = (int)itemTitles.count;
+    selfView.contentVH = kCellH * (cellCount + isTitle);
+    CGFloat maxH = kWH - 100;
+    if (selfView.contentVH > maxH) {
+        selfView.contentVH = maxH;
+    }
+    
+    selfView.contentViewY = kWH - selfView.contentVH;
+    selfView.contentView.frame = CGRectMake(0, kWH, kWW, selfView.contentVH);
+    
+    CGFloat sheetY = 0;
+    CGFloat sheetH = CGRectGetHeight(selfView.contentView.frame);
+    if (isTitle) {
+        selfView.titleView.frame = CGRectMake(0, 0, kWW, kCellH);
+        sheetY = CGRectGetHeight(selfView.titleView.frame);
+        sheetH = CGRectGetHeight(selfView.contentView.frame) - CGRectGetHeight(selfView.titleView.frame);
+    }
+    selfView.sheetView.frame = CGRectMake(0, sheetY, kWW, sheetH);
+    return selfView;
+}
 //显示默认的样式
 - (void)pushDefaultStyleSheetView
 {
@@ -158,6 +266,27 @@
     }];
     
 }
+//显示像微信的样式
+- (void)pushWeiChatStyeSheetView
+{
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:kPushTime animations:^{
+        weakSelf.contentView.frame = CGRectMake(0, weakSelf.contentViewY, kWW, weakSelf.contentVH);
+        weakSelf.footView.frame = CGRectMake(0, weakSelf.footViewY, kWW, kCellH);
+        weakSelf.marginView.frame = CGRectMake(0, weakSelf.footViewY - kMargin, kWW, kMargin);
+        weakSelf.bgBtn.alpha = 0.35;
+        weakSelf.marginView.alpha = 1.0;
+    }];
+}
+//显示TableView的样式
+- (void)pushTableStyeSheetView
+{
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:kPushTime animations:^{
+        weakSelf.contentView.frame = CGRectMake(0, weakSelf.contentViewY, kWW, weakSelf.contentVH);
+        weakSelf.bgBtn.alpha = 0.35;
+    }];
+}
 //显示
 - (void)show
 {
@@ -165,7 +294,7 @@
         [self pushDefaultStyleSheetView];
     }
     else if (_sheetStyle == WYSheetStyleWeiChat) {
-        
+        [self pushWeiChatStyeSheetView];
     }
     else if (_sheetStyle == WYSheetStyleTable) {
         
@@ -182,6 +311,37 @@
     } completion:^(BOOL finished) {
         [weakSelf.contentView removeFromSuperview];
         [weakSelf.footView removeFromSuperview];
+        [weakSelf.bgBtn removeFromSuperview];
+        [weakSelf removeFromSuperview];
+    }];
+}
+//消失微信样式
+- (void)dismissWeiChatStyeSheetView
+{
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:kDismissTime animations:^{
+        weakSelf.contentView.frame = CGRectMake(0, kWH, kWW, weakSelf.contentVH);
+        weakSelf.footView.frame = CGRectMake(0, weakSelf.footViewY + weakSelf.contentVH, kWW, kCellH);
+        weakSelf.marginView.frame = CGRectMake(0, kWH + CGRectGetHeight(weakSelf.contentView.frame) + CGRectGetHeight(weakSelf.titleView.frame), kWW, kMargin);
+        weakSelf.bgBtn.alpha = 0.0;
+        weakSelf.marginView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [weakSelf.contentView removeFromSuperview];
+        [weakSelf.footView removeFromSuperview];
+        [weakSelf.marginView removeFromSuperview];
+        [weakSelf.bgBtn removeFromSuperview];
+        [weakSelf removeFromSuperview];
+    }];
+}
+//消失TableView样式
+- (void)dismissTableStyeSheetView
+{
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:kDismissTime animations:^{
+        weakSelf.contentView.frame = CGRectMake(0, kWH, kWW, weakSelf.contentVH);
+        weakSelf.bgBtn.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [weakSelf.contentView removeFromSuperview];
         [weakSelf.bgBtn removeFromSuperview];
         [weakSelf removeFromSuperview];
     }];
@@ -215,10 +375,10 @@
         [self dismissDefaulfSheetView];
     }
     else if (_sheetStyle == WYSheetStyleWeiChat) {
-        
+        [self dismissWeiChatStyeSheetView];
     }
     else if (_sheetStyle == WYSheetStyleTable) {
-        
+        [self dismissTableStyeSheetView];
     }
 }
 

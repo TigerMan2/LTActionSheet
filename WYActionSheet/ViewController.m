@@ -22,7 +22,7 @@
     
 }
 - (IBAction)ceshi:(id)sender {
-    WYActionSheet *sheet = [[WYActionSheet alloc] initWithTitle:@"提示" style:WYSheetStyleDefault itemTitles:@[@"相亲",@"相爱",@"相亲",@"相爱",@"相亲",@"相爱",@"相亲"]];
+    WYActionSheet *sheet = [[WYActionSheet alloc] initWithTitle:@"提示" style:WYSheetStyleTable itemTitles:@[@"相亲",@"相爱",@"相亲",@"相爱",@"相亲",@"相爱",@"相亲"]];
     [sheet show];
     
     [sheet didFinishSelectBlock:^(NSInteger index, NSString *title) {
