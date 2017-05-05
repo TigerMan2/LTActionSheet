@@ -14,11 +14,12 @@
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.backgroundColor = [UIColor whiteColor];
     self.titleLabel.textColor = [UIColor darkGrayColor];
+    self.titleLabel.font = [UIFont systemFontOfSize:14];
     if ([[UIScreen mainScreen] bounds].size.height == 667) {
-        self.titleLabel.font = [UIFont systemFontOfSize:20];
+        self.titleLabel.font = [UIFont systemFontOfSize:16];
     }
     else if ([[UIScreen mainScreen] bounds].size.height > 667) {
-        self.titleLabel.font = [UIFont systemFontOfSize:21];
+        self.titleLabel.font = [UIFont systemFontOfSize:18];
     }
 }
 @end
