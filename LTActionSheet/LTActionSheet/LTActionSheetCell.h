@@ -1,5 +1,5 @@
 //
-//  LTActionSheet.h
+//  LTSheetCell.h
 //  LTActionSheet
 //
 //  Created by wubj on 17/3/31.
@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "LTActionSheetConfig.h"
+@class LTActionSheetItem;
 
-@interface LTActionSheet : UIView
+@interface LTActionSheetCell : UITableViewCell
 
 @property (nonatomic, assign) LTItemContentAlignment contentAlignment;
+@property (nonatomic, strong) LTActionSheetItem *item;
+@property (nonatomic, assign) BOOL hideTopLine; //!< hide topLine
 
 @end

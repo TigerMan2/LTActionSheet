@@ -15,15 +15,11 @@
 		4AD55FAC1E8DF7AC0001D017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AD55FAA1E8DF7AC0001D017 /* LaunchScreen.storyboard */; };
 		4AD55FB71E8DF7AD0001D017 /* WYActionSheetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD55FB61E8DF7AD0001D017 /* WYActionSheetTests.m */; };
 		4AD55FC21E8DF7AD0001D017 /* WYActionSheetUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD55FC11E8DF7AD0001D017 /* WYActionSheetUITests.m */; };
-		AAA68157231BAFF20095C7CA /* LTSheetHead.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA68149231BAFF20095C7CA /* LTSheetHead.m */; };
 		AAA68158231BAFF20095C7CA /* LTActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA6814A231BAFF20095C7CA /* LTActionSheet.m */; };
-		AAA68159231BAFF20095C7CA /* LTSheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA6814B231BAFF20095C7CA /* LTSheetCell.m */; };
-		AAA6815A231BAFF20095C7CA /* LTSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA6814C231BAFF20095C7CA /* LTSheetView.m */; };
-		AAA6815B231BAFF20095C7CA /* LTSheetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAA6814F231BAFF20095C7CA /* LTSheetCell.xib */; };
-		AAA6815C231BAFF20095C7CA /* LTSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAA68151231BAFF20095C7CA /* LTSheetView.xib */; };
-		AAA6815D231BAFF20095C7CA /* LTSheetHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAA68152231BAFF20095C7CA /* LTSheetHead.xib */; };
-		AAA6815E231BAFF20095C7CA /* LTSheetFoot.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAA68153231BAFF20095C7CA /* LTSheetFoot.xib */; };
-		AAA6815F231BAFF20095C7CA /* LTSheetFoot.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA68155231BAFF20095C7CA /* LTSheetFoot.m */; };
+		AAA68159231BAFF20095C7CA /* LTActionSheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA6814B231BAFF20095C7CA /* LTActionSheetCell.m */; };
+		AAFD453D231CB4DC0050D439 /* LTActionSheetConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFD453C231CB4DC0050D439 /* LTActionSheetConfig.m */; };
+		AAFD4540231CDAD00050D439 /* LTActionSheetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFD453F231CDAD00050D439 /* LTActionSheetItem.m */; };
+		AAFD4546231CE2BE0050D439 /* UIColor+LTExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFD4545231CE2BE0050D439 /* UIColor+LTExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,20 +56,16 @@
 		4AD55FBD1E8DF7AD0001D017 /* LTActionSheetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTActionSheetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD55FC11E8DF7AD0001D017 /* WYActionSheetUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYActionSheetUITests.m; sourceTree = "<group>"; };
 		4AD55FC31E8DF7AD0001D017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAA68149231BAFF20095C7CA /* LTSheetHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSheetHead.m; sourceTree = "<group>"; };
 		AAA6814A231BAFF20095C7CA /* LTActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTActionSheet.m; sourceTree = "<group>"; };
-		AAA6814B231BAFF20095C7CA /* LTSheetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSheetCell.m; sourceTree = "<group>"; };
-		AAA6814C231BAFF20095C7CA /* LTSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSheetView.m; sourceTree = "<group>"; };
-		AAA6814D231BAFF20095C7CA /* LTSheetFoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSheetFoot.h; sourceTree = "<group>"; };
+		AAA6814B231BAFF20095C7CA /* LTActionSheetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTActionSheetCell.m; sourceTree = "<group>"; };
 		AAA6814E231BAFF20095C7CA /* LTActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTActionSheet.h; sourceTree = "<group>"; };
-		AAA6814F231BAFF20095C7CA /* LTSheetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTSheetCell.xib; sourceTree = "<group>"; };
-		AAA68150231BAFF20095C7CA /* LTSheetHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSheetHead.h; sourceTree = "<group>"; };
-		AAA68151231BAFF20095C7CA /* LTSheetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTSheetView.xib; sourceTree = "<group>"; };
-		AAA68152231BAFF20095C7CA /* LTSheetHead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTSheetHead.xib; sourceTree = "<group>"; };
-		AAA68153231BAFF20095C7CA /* LTSheetFoot.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTSheetFoot.xib; sourceTree = "<group>"; };
-		AAA68154231BAFF20095C7CA /* LTSheetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSheetCell.h; sourceTree = "<group>"; };
-		AAA68155231BAFF20095C7CA /* LTSheetFoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSheetFoot.m; sourceTree = "<group>"; };
-		AAA68156231BAFF20095C7CA /* LTSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSheetView.h; sourceTree = "<group>"; };
+		AAA68154231BAFF20095C7CA /* LTActionSheetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTActionSheetCell.h; sourceTree = "<group>"; };
+		AAFD453B231CB4DC0050D439 /* LTActionSheetConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTActionSheetConfig.h; sourceTree = "<group>"; };
+		AAFD453C231CB4DC0050D439 /* LTActionSheetConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LTActionSheetConfig.m; sourceTree = "<group>"; };
+		AAFD453E231CDAD00050D439 /* LTActionSheetItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTActionSheetItem.h; sourceTree = "<group>"; };
+		AAFD453F231CDAD00050D439 /* LTActionSheetItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LTActionSheetItem.m; sourceTree = "<group>"; };
+		AAFD4544231CE2BE0050D439 /* UIColor+LTExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+LTExtension.h"; sourceTree = "<group>"; };
+		AAFD4545231CE2BE0050D439 /* UIColor+LTExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LTExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,20 +159,16 @@
 		AAA68148231BAFF20095C7CA /* LTActionSheet */ = {
 			isa = PBXGroup;
 			children = (
-				AAA68149231BAFF20095C7CA /* LTSheetHead.m */,
-				AAA6814A231BAFF20095C7CA /* LTActionSheet.m */,
-				AAA6814B231BAFF20095C7CA /* LTSheetCell.m */,
-				AAA6814C231BAFF20095C7CA /* LTSheetView.m */,
-				AAA6814D231BAFF20095C7CA /* LTSheetFoot.h */,
 				AAA6814E231BAFF20095C7CA /* LTActionSheet.h */,
-				AAA6814F231BAFF20095C7CA /* LTSheetCell.xib */,
-				AAA68150231BAFF20095C7CA /* LTSheetHead.h */,
-				AAA68151231BAFF20095C7CA /* LTSheetView.xib */,
-				AAA68152231BAFF20095C7CA /* LTSheetHead.xib */,
-				AAA68153231BAFF20095C7CA /* LTSheetFoot.xib */,
-				AAA68154231BAFF20095C7CA /* LTSheetCell.h */,
-				AAA68155231BAFF20095C7CA /* LTSheetFoot.m */,
-				AAA68156231BAFF20095C7CA /* LTSheetView.h */,
+				AAA6814A231BAFF20095C7CA /* LTActionSheet.m */,
+				AAA68154231BAFF20095C7CA /* LTActionSheetCell.h */,
+				AAA6814B231BAFF20095C7CA /* LTActionSheetCell.m */,
+				AAFD453E231CDAD00050D439 /* LTActionSheetItem.h */,
+				AAFD453F231CDAD00050D439 /* LTActionSheetItem.m */,
+				AAFD453B231CB4DC0050D439 /* LTActionSheetConfig.h */,
+				AAFD453C231CB4DC0050D439 /* LTActionSheetConfig.m */,
+				AAFD4544231CE2BE0050D439 /* UIColor+LTExtension.h */,
+				AAFD4545231CE2BE0050D439 /* UIColor+LTExtension.m */,
 			);
 			path = LTActionSheet;
 			sourceTree = "<group>";
@@ -295,12 +283,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAA6815E231BAFF20095C7CA /* LTSheetFoot.xib in Resources */,
 				4AD55FAC1E8DF7AC0001D017 /* LaunchScreen.storyboard in Resources */,
-				AAA6815B231BAFF20095C7CA /* LTSheetCell.xib in Resources */,
 				4AD55FA91E8DF7AC0001D017 /* Assets.xcassets in Resources */,
-				AAA6815D231BAFF20095C7CA /* LTSheetHead.xib in Resources */,
-				AAA6815C231BAFF20095C7CA /* LTSheetView.xib in Resources */,
 				4AD55FA71E8DF7AC0001D017 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,14 +310,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAFD4546231CE2BE0050D439 /* UIColor+LTExtension.m in Sources */,
 				4AD55FA41E8DF7AC0001D017 /* ViewController.m in Sources */,
-				AAA6815F231BAFF20095C7CA /* LTSheetFoot.m in Sources */,
-				AAA68159231BAFF20095C7CA /* LTSheetCell.m in Sources */,
+				AAFD453D231CB4DC0050D439 /* LTActionSheetConfig.m in Sources */,
+				AAA68159231BAFF20095C7CA /* LTActionSheetCell.m in Sources */,
+				AAFD4540231CDAD00050D439 /* LTActionSheetItem.m in Sources */,
 				4AD55FA11E8DF7AC0001D017 /* AppDelegate.m in Sources */,
-				AAA6815A231BAFF20095C7CA /* LTSheetView.m in Sources */,
 				4AD55F9E1E8DF7AC0001D017 /* main.m in Sources */,
 				AAA68158231BAFF20095C7CA /* LTActionSheet.m in Sources */,
-				AAA68157231BAFF20095C7CA /* LTSheetHead.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
